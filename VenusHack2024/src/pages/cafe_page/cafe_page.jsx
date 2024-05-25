@@ -4,29 +4,23 @@ import Card from "../../components/card/card";
 import CafeInfo from "../../components/cafe_info/cafe_info"
 import './cafe_page.css'
 
-const cardData = [
-  { imgSrc: "https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?cs=srgb&dl=pexels-chanwalrus-958545.jpg&fm=jpg", title: "Card 1", rate: 4.5, comment_num: 34, link: "/link1" },
-  { imgSrc: "https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?cs=srgb&dl=pexels-chanwalrus-958545.jpg&fm=jpg", title: "Card 1", rate: 4.5, comment_num: 34, link: "/link1" },
-  { imgSrc: "https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?cs=srgb&dl=pexels-chanwalrus-958545.jpg&fm=jpg", title: "Card 1", rate: 4.5, comment_num: 34, link: "/link1" },
-  { imgSrc: "https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?cs=srgb&dl=pexels-chanwalrus-958545.jpg&fm=jpg", title: "Card 1", rate: 4.5, comment_num: 34, link: "/link1" },
-  { imgSrc: "https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?cs=srgb&dl=pexels-chanwalrus-958545.jpg&fm=jpg", title: "Card 1", rate: 4.5, comment_num: 34, link: "/link1" },
-  { imgSrc: "https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?cs=srgb&dl=pexels-chanwalrus-958545.jpg&fm=jpg", title: "Card 1", rate: 4.5, comment_num: 34, link: "/link1" },
-  { imgSrc: "https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?cs=srgb&dl=pexels-chanwalrus-958545.jpg&fm=jpg", title: "Card 1", rate: 4.5, comment_num: 34, link: "/link1" },
-  { imgSrc: "https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?cs=srgb&dl=pexels-chanwalrus-958545.jpg&fm=jpg", title: "Card 1", rate: 4.5, comment_num: 34, link: "/link1" },
-  { imgSrc: "https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?cs=srgb&dl=pexels-chanwalrus-958545.jpg&fm=jpg", title: "Card 1", rate: 4.5, comment_num: 34, link: "/link1" },
-  { imgSrc: "https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?cs=srgb&dl=pexels-chanwalrus-958545.jpg&fm=jpg", title: "Card 1", rate: 4.5, comment_num: 34, link: "/link1" },
-  { imgSrc: "https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?cs=srgb&dl=pexels-chanwalrus-958545.jpg&fm=jpg", title: "Card 2", rate: 3.8, comment_num: 89, link: "/link2" },
-  // Add more card objects as needed
-];
-
-export const CafePage = () =>{
+export const CafePage = ({
+  cafe_name,
+  imgSrc,
+  cardData
+}) =>{
+  var rate_sum = 0
+  for(var i = 0; i < cardData.length; i++){
+    rate_sum += cardData[i].rate
+  }
+  var rate = Math.round((rate_sum / cardData.length) * 10) / 10
   return (
     <div className="cafe-page-container">
       <Navbar />
       <CafeInfo
-        imgSrc={"assets/brandywine.jpg"}
-        cafe_name={"Brandywine"}
-        overall_rating={3.1}
+        imgSrc={imgSrc}
+        cafe_name={cafe_name}
+        overall_rating={rate}
       />
       <div className="cards-grid">
         {cardData.map((data, index) => (
