@@ -9,13 +9,19 @@ const cardData = [
   { imgSrc: "https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?cs=srgb&dl=pexels-chanwalrus-958545.jpg&fm=jpg", title: "Card 1", rate: 4.5, comment_num: 34, link: "/link1" },
   { imgSrc: "https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?cs=srgb&dl=pexels-chanwalrus-958545.jpg&fm=jpg", title: "Card 1", rate: 4.5, comment_num: 34, link: "/link1" },
   { imgSrc: "https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?cs=srgb&dl=pexels-chanwalrus-958545.jpg&fm=jpg", title: "Card 1", rate: 4.5, comment_num: 34, link: "/link1" },
+  { imgSrc: "https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?cs=srgb&dl=pexels-chanwalrus-958545.jpg&fm=jpg", title: "Card 1", rate: 4.5, comment_num: 34, link: "/link1" },
+  { imgSrc: "https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?cs=srgb&dl=pexels-chanwalrus-958545.jpg&fm=jpg", title: "Card 1", rate: 4.5, comment_num: 34, link: "/link1" },
+  { imgSrc: "https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?cs=srgb&dl=pexels-chanwalrus-958545.jpg&fm=jpg", title: "Card 1", rate: 4.5, comment_num: 34, link: "/link1" },
+  { imgSrc: "https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?cs=srgb&dl=pexels-chanwalrus-958545.jpg&fm=jpg", title: "Card 1", rate: 4.5, comment_num: 34, link: "/link1" },
+  { imgSrc: "https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?cs=srgb&dl=pexels-chanwalrus-958545.jpg&fm=jpg", title: "Card 1", rate: 4.5, comment_num: 34, link: "/link1" },
+  { imgSrc: "https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?cs=srgb&dl=pexels-chanwalrus-958545.jpg&fm=jpg", title: "Card 1", rate: 4.5, comment_num: 34, link: "/link1" },
   { imgSrc: "https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?cs=srgb&dl=pexels-chanwalrus-958545.jpg&fm=jpg", title: "Card 2", rate: 3.8, comment_num: 89, link: "/link2" },
   // Add more card objects as needed
 ];
 
 export const CafePage = () =>{
   return (
-    <div className="HomePage">
+    <div className="cafe-page-container">
       <Navbar />
       <CafeInfo
         imgSrc={"assets/brandywine.jpg"}
