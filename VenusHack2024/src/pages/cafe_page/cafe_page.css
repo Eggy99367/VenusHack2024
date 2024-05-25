@@ -1,19 +1,37 @@
 .cards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  gap: 20px;
-  padding: 30px;
-  padding-top: 0px;
+  grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+  gap: 7px;
   justify-content: center;
+  font-size: 15px;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 5%;
 }
 
 .category-heading {
   display: flex;
-  background-color: #e47627;
+  /* background-color: #A67B5B; */
   height: 50px;
   justify-content: center;
   align-items: center;
   text-align: center;
   margin: 0 auto;
   width: 100%;
+  font-size: 43px;
+  margin-top: 60px;
+  font-family:'Courier New', Courier, monospace
+}
+
+.cafe-page-container{
+  margin: 0px;
+}
+
+.nav{
+  position: fixed;
+  width: 100%;
+}
+
+.empty{
+  padding-block-start: 17vh;
 }

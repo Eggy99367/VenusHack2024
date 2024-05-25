@@ -38,7 +38,7 @@ export const Card = ({ imgSrc, title, rate, comment_num }) => {
             console.log(modalOpen);
           }}
         >
-          Open
+          Rate
         </button>
         {modalOpen && (
           <RatingPopout
