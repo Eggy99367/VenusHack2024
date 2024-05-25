@@ -7,15 +7,22 @@
     display: flex;
     flex-direction: column;
     margin: 0.5rem;
-    background-color: white;
+    background-color: rgba(209, 206, 206, 0.352);
     height: auto;
+    /* align-items: center; */
 }
-.card-img{
-    width: 100%;
+
+
+.card-img {
     border-radius: 1rem 1rem 0 0;
+    height: 300px;
+    object-fit: cover;
 }
+
 .card-title,.card-description{
     margin: 0.5rem 5%;
+    align-items: center;
+    height: 2em;
 }
 
 .card-btn{
@@ -27,6 +34,11 @@
     color:white;
     text-decoration: none;
     margin: 0.5rem;
+    justify-content: center;
+    align-items: center;
+    margin-top: auto;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .star{

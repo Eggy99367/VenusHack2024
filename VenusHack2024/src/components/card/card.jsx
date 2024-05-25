@@ -24,7 +24,7 @@ export const Card = ({
                 <Box width="62%">
                     {rate ? <StarRating value={rate} /> : <StarRating value={0} />}
                 </Box>
-                <Box width="26%">
+                <Box width="26%" className="btn-box">
                     <p>{comment_num ?? 0} reviews</p>
                 </Box>
             </HStack>

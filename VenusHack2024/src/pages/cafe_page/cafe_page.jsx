@@ -1,42 +1,40 @@
 import React from "react";
 import Navbar from "../../components/navbar/navbar";
 import Card from "../../components/card/card";
-import CafeInfo from "../../components/cafe_info/cafe_info"
-import './cafe_page.css'
+import CafeInfo from "../../components/cafe_info/cafe_info";
+import './cafe_page.css';
 
-export const CafePage = ({
-  cafe_name,
-  imgSrc,
-  cardData
-}) =>{
-  var rate_sum = 0
-  for(var i = 0; i < cardData.length; i++){
-    rate_sum += cardData[i].rate
+export const CafePage = ({ cafe_name, imgSrc, cardData }) => {
+  const flattenedCardData = Object.values(cardData).flat();
+  var rate_sum = 0;
+  for (var i = 0; i < flattenedCardData.length; i++) {
+    rate_sum += flattenedCardData[i].rate;
   }
-  var rate = Math.round((rate_sum / cardData.length) * 10) / 10
+  var rate = Math.round((rate_sum / flattenedCardData.length) * 10) / 10;
+
   return (
     <div className="cafe-page-container">
       <Navbar />
-      <CafeInfo
-        imgSrc={imgSrc}
-        cafe_name={cafe_name}
-        overall_rating={rate}
-      />
-      <div className="cards-grid">
-        {cardData.map((data, index) => (
-          <Card
-            key={index}
-            imgSrc={data.imgSrc}
-            title={data.title}
-            rate={data.rate}
-            comment_num={data.comment_num}
-            link={data.link}
-          />
-        ))}
-      </div>
+      <CafeInfo imgSrc={imgSrc} cafe_name={cafe_name} overall_rating={rate} />
+      {Object.entries(cardData).map(([category, cards]) => (
+        <div key={category}>
+          <h1 className="category-heading">{category}</h1>
+          <div className="cards-grid">
+            {cards.map((data, index) => (
+              <Card
+                key={index}
+                imgSrc={data.imgSrc}
+                title={data.title}
+                rate={data.rate}
+                comment_num={data.comment_num}
+                link={data.link}
+              />
+            ))}
+          </div>
+        </div>
+      ))}
     </div>
   );
 };
 
-export default CafePage
-
+export default CafePage;
