@@ -18,10 +18,14 @@ header {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	height: 80px;
+	height: 65px;
 	padding: 0 2rem;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 2.5%;
 	background-color: var(--mainColor);
 	color: var(--textColor);
+  border-radius: 4rem;
 }
 
 nav a {
@@ -92,5 +96,5 @@ nav {
   width: 5%; /* Adjust the value as needed */
 }
 .spacer2 {
-  width: 95%; /* Adjust the value as needed */
+  width: 5%; /* Adjust the value as needed */
 }

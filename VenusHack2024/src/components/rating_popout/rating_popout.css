@@ -45,7 +45,7 @@
     justify-content: space-evenly;
   }
 
-  .star{
+  .modal-container .star{
     align-content: center;
     margin-bottom: 10%;
   }

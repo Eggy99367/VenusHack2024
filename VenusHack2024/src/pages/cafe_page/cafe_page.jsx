@@ -3,6 +3,7 @@ import Navbar from "../../components/navbar/navbar";
 import Card from "../../components/card/card";
 import CafeInfo from "../../components/cafe_info/cafe_info";
 import './cafe_page.css';
+import { Spacer } from "@chakra-ui/react";
 
 export const CafePage = ({ cafe_name, imgSrc, cardData }) => {
   const flattenedCardData = Object.values(cardData).flat();
@@ -14,10 +15,13 @@ export const CafePage = ({ cafe_name, imgSrc, cardData }) => {
 
   return (
     <div className="cafe-page-container">
-      <Navbar />
-      <CafeInfo imgSrc={imgSrc} cafe_name={cafe_name} overall_rating={rate} />
+      <div className="nav">
+        <Navbar/>
+      </div>
+      <div className="empty"></div>
+      <CafeInfo imgSrc={imgSrc} cafe_name={cafe_name} overall_rating={rate}/>
       {Object.entries(cardData).map(([category, cards]) => (
-        <div key={category}>
+        <div className={"subtitle"} key={category}>
           <h1 className="category-heading">{category}</h1>
           <div className="cards-grid">
             {cards.map((data, index) => (

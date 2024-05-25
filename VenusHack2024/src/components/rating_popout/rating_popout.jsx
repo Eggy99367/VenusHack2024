@@ -15,8 +15,7 @@ export const RatingPopout = ({ onSubmit, onCancel, closeModal, children }) => {
     <div
       className="modal-container"
       onClick={(e) => {
-        if (e.target.className === "modal-container")
-          closeModal("Modal was closed");
+        if (e.target.className === "modal-container") closeModal("");
       }}
     >
       <div className="modal">
