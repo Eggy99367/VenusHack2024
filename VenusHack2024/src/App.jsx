@@ -1,13 +1,12 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
-import { Card } from './components/card/card'
-import { Home } from './pages/home/home'
+import { Routes, Route } from 'react-router-dom'
+import { CafePage } from './pages/cafe_page/cafe_page'
 import './App.css'
 
 function App() {
   return(
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route path="/" element={<CafePage />} />
     </Routes>
   )
 }

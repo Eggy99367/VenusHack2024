@@ -2,7 +2,7 @@ import React from "react";
 import Navbar from "../../components/navbar/navbar";
 import Card from "../../components/card/card";
 import CafeInfo from "../../components/cafe_info/cafe_info"
-import './home.css'
+import './cafe_page.css'
 
 const cardData = [
   { imgSrc: "https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?cs=srgb&dl=pexels-chanwalrus-958545.jpg&fm=jpg", title: "Card 1", rate: 4.5, comment_num: 34, link: "/link1" },
@@ -13,14 +13,14 @@ const cardData = [
   // Add more card objects as needed
 ];
 
-export const Home = () =>{
+export const CafePage = () =>{
   return (
     <div className="HomePage">
       <Navbar />
       <CafeInfo
-        imgSrc={"https://parkerlab.bio.uci.edu/pictures/photography%20pictures/2020_10_05_UCI_newCanonR5/BIG/tn__5R_0726_tweak.jpg"}
+        imgSrc={"assets/brandywine.jpg"}
         cafe_name={"Brandywine"}
-        over_all_rating={3.0}
+        overall_rating={3.1}
       />
       <div className="cards-grid">
         {cardData.map((data, index) => (
@@ -38,5 +38,5 @@ export const Home = () =>{
   );
 };
 
-export default Home
+export default CafePage
 

@@ -1,3 +1,22 @@
-.cafe-info-container{
-    height: 100%;
+.cafe-info-container h1{
+    color: white;
+    font-size: 70px;
+}
+
+.cafe-info-container p{
+    color: white;
+    font-size: 40px;
+}
+
+.rating-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.rating-container p{
+    display: flex;
+    justify-content: right;
+    align-items: right;
 }

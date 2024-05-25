@@ -1,7 +1,7 @@
 import React from "react";
-import './card.css';
 import { StarRating } from '../star_rating/star_rating'
 import { HStack, Box } from '@chakra-ui/react';
+import './card.css';
 
 export const Card = ({
     imgSrc,

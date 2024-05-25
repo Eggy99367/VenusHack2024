@@ -1,24 +1,35 @@
 import React from 'react';
+import { StarRating } from '../star_rating/star_rating'
 import './cafe_info.css'
 
 function CafeInfo({
     imgSrc,
     cafe_name,
-    over_all_rate
+    overall_rating,
 }) {
   const style = {
-    height: '300px',  // Adjust the height as needed
-    width: '100%',    // Adjust the width as needed
+    height: '300px',
+    width: '100%',
     backgroundImage: `url(${imgSrc})`,
-    backgroundSize: 'cover',  // Ensure the image covers the whole div
-    backgroundPosition: 'center',  // Center the background image
-    display: 'flex',  // Optional, for layout purposes
-    justifyContent: 'center',  // Optional, for layout purposes
-    alignItems: 'center'  // Optional, for layout purposes
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center'
   };
   return (
     <div className='cafe-info-container' style={style}>
-        <h1>{cafe_name}</h1>
+      <h1>{cafe_name}</h1>
+
+      <div className='rating-container'>
+        <div style={{width: '5%'}}>
+          <p>{overall_rating ?? '0'}</p>
+        </div>
+        <div style={{width: '200px'}}>
+          {overall_rating ? <StarRating value={overall_rating} /> : <StarRating value={0} />}
+        </div>
+      </div>
     </div>
   );
 }
