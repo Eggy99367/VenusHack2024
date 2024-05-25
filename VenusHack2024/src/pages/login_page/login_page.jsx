@@ -19,6 +19,7 @@ export const LoginPage = () => {
       setLoggedIn(true);
       setErrorMessage('');
       console.log('Login successful');
+      location.replace('/brandywine')
     } else {
       setErrorMessage('Invalid email or password');
     }
