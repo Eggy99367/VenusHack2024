@@ -15,7 +15,7 @@ function Navbar() {
 
   return (
     <header>
-      <h3>LOGO</h3>
+      <img src="./assets/white_logo.png" alt="Logo" className="nav-logo" />
       <div className="spacer"></div>
       <nav ref={navRef}>
         <Link to="/brandywine">Brandywine</Link>
@@ -29,14 +29,14 @@ function Navbar() {
         <FaBars />
       </button>
       <IconButton
-        height={"55%"}
-        width={"4.5%"}
-        bg={"#ff6347"}
-        variant="outline"
-        color={"#00000"}
-        aria-label="Send email"
-        icon={<BellIcon boxSize={20} />}
-      />
+          height={"55%"}
+          width={"4.5%"}
+          bg={"#ff6347"}
+          variant="outline"
+          color={"#00000"}
+          aria-label="Send email"
+          icon={<BellIcon boxSize={20} />}
+        />
     </header>
   );
 }
