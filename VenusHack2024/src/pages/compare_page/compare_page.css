@@ -1,0 +1,11 @@
+.content-container {
+	display: flex;
+	justify-content: center; /* This will center the items horizontally */
+	align-items: top;    /* This will center the items vertically */
+	gap: 0px;              /* Optional: adds space between the two containers */
+}
+
+.brandy-container, .ant-container {
+	flex: 1;  /* Each takes up equal space */
+	/* If you need specific widths, you can use width: 50%; or any other value */
+}
