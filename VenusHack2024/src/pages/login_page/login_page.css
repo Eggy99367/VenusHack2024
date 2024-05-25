@@ -6,12 +6,16 @@
 
 .login-image {
     flex: 1;
-    background: url('https://via.placeholder.com/600x800') no-repeat center center;
+    width: 70%;
+    display: flex;
+    background: url("assets/brandywine.jpg") no-repeat center center;
     background-size: cover;
 }
 
 .login-form {
     flex: 1;
+    max-width: 30%;
+    min-width: 300px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,9 +24,12 @@
 }
 
 form {
-    width: 80%;
-    max-width: 400px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+
 
 .form-group {
     margin-bottom: 15px;
@@ -37,20 +44,65 @@ label {
     margin-bottom: 5px;
 }
 
-input[type="email"], input[type="password"] {
-    width: 100%;
+input[type="email"], input[type="password"], button {
+    width: 90%;
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    box-sizing: border-box;
 }
 
+
 button {
-    width: 100%;
+    width: calc(100% - 20px);
     padding: 10px;
     background-color: blue;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    box-sizing: border-box;
+}
+
+.signup-modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 80%;
+    height: 80%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+
+.signup-button {
+    margin-top: 10px;
+    background-color: green;
+    color: white;
+    border: none;
+}
+
+.form-group {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.signup-modal input[type="email"], input[type="password"], button {
+    width: 90%;
+    max-width: 400px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
 }
