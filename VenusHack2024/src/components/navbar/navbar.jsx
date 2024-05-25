@@ -18,9 +18,9 @@ function Navbar() {
       <h3>LOGO</h3>
       <div className="spacer"></div>
       <nav ref={navRef}>
-        <Link to="/">Home</Link>
-        <Link to="/">Home</Link>
-        <Link to="/">Home</Link>
+        <Link to="/brandywine">Brandywine</Link>
+        <Link to="/anteatery">Anteatery</Link>
+        <Link to="/compare">Compare</Link>
         <button className="nav-btn nav-close-btn" onClick={showNavbar}>
           <FaTimes />
         </button>

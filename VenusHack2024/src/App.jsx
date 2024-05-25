@@ -2,6 +2,7 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom'
 import { LoginPage } from "./pages/login_page/login_page"
 import { CafePage } from './pages/cafe_page/cafe_page'
+import { ComparePage } from './pages/compare_page/compare_page'
 import './App.css'
 
 const BrandyData = {
@@ -90,6 +91,7 @@ function App() {
       <Route path="/" element={<LoginPage />} />
       <Route path="/brandywine" element={<CafePage cafe_name={"Brandywine"} imgSrc={"assets/brandywine.jpg"} cardData={BrandyData} />} />
       <Route path="/anteatery" element={<CafePage cafe_name={"The Anteatery"} imgSrc={"assets/anteatery.jpg"} cardData={AnteateryData} />} />
+      <Route path="/compare" element={<ComparePage BrandyData={BrandyData} AntData={AnteateryData}/>} />
     </Routes>
   )
 }
