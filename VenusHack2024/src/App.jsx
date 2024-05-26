@@ -5,6 +5,40 @@ import { CafePage } from './pages/cafe_page/cafe_page'
 import { ComparePage } from './pages/compare_page/compare_page'
 import './App.css'
 
+async function httpGet(url) {
+  try {
+      const response = await fetch(url);
+      console.log(response)
+      if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      const data = await response.json();
+      // console.log(data);
+      return data;
+  } catch (error) {
+      console.error('GET request failed:', error);
+  }
+}
+
+function parse_data(food_data){
+  const result = {"anteatery":{}, "brandy":{}}
+  for(const i = 0; i < food_data.length; i++){
+    const food = food_data[i]
+    if(food.cafe == "Brandywine"){
+      if(result["brandy"][food.station] == undefined){
+        result["brandy"][food.station] == []
+      }
+      result["brandy"][food.station].push({id: food.id, imgSrc: food.imgSrc, title: food.name, rate: food.rate, comment_num: food.reviews})
+    }else{
+      if(result["anteatery"][food.station] == undefined){
+        result["anteatery"][food.station] == []
+      }
+      result["anteatery"][food.station].push({id: food.id, imgSrc: food.imgSrc, title: food.name, rate: food.rate, comment_num: food.reviews})
+    }
+  }
+  return result
+}
+
 const BrandyData = {
   //Grubb/ Mainline
   Mainline:
@@ -50,7 +84,7 @@ const BrandyData = {
   // Add more card objects as needed
 };
 
-const AnteateryData = {
+const anteateryAnteateryData = {
   //Home
   Home:
   [
@@ -79,19 +113,41 @@ const AnteateryData = {
   [
   { imgSrc: "https://www.simplyrecipes.com/thmb/w4_QB4AOJ6a58M6g8FL7oJp3h7c=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Spicy-Tofu-Stirfry-METHOD-10-50c90297cbc840ba9927452d47c7e775.jpg", title: "Spicy Tofu Vegetable Stir-Fry", rate: 4.5, comment_num: 34, link: "/link1" },
   ]
-  
-
-
-  // Add more card objects as needed
 };
+
+var FoodData = await httpGet("http://localhost/db/foods");
+console.log(FoodData)
+
+
+var anteatery = {}
+var brandy = {}
+for(var i = 0; i < FoodData.length; i++){
+  const food = FoodData[i]
+  console.log(food)
+  if(food.cafe == "Brandywine"){
+    if(!brandy.hasOwnProperty(food.station)){
+      console.log(food.station)
+      brandy[food.station] = []
+    }
+    console.log(brandy[food.station])
+    brandy[food.station].push({id: food.id, imgSrc: food.imgSrc, title: food.name, rate: food.rate, comment_num: food.reviews})
+  }else{
+    if(!anteatery.hasOwnProperty(food.station)){
+      anteatery[food.station] = []
+    }
+    anteatery[food.station].push({id: food.id, imgSrc: food.imgSrc, title: food.name, rate: food.rate, comment_num: food.reviews})
+  }
+}
+console.log(anteatery)
+console.log(brandy)
 
 function App() {
   return(
     <Routes>
       <Route path="/" element={<LoginPage />} />
-      <Route path="/brandywine" element={<CafePage cafe_name={"Brandywine"} imgSrc={"assets/brandywine.jpg"} cardData={BrandyData} />} />
-      <Route path="/anteatery" element={<CafePage cafe_name={"The Anteatery"} imgSrc={"assets/anteatery.jpg"} cardData={AnteateryData} />} />
-      <Route path="/compare" element={<ComparePage BrandyData={BrandyData} AntData={AnteateryData}/>} />
+      <Route path="/brandywine" element={<CafePage cafe_name={"Brandywine"} imgSrc={"assets/brandywine.jpg"} cardData={brandy} />} />
+      <Route path="/anteatery" element={<CafePage cafe_name={"The Anteatery"} imgSrc={"assets/anteatery.jpg"} cardData={anteatery} />} />
+      <Route path="/compare" element={<ComparePage BrandyData={brandy} AntData={anteatery}/>} />
     </Routes>
   )
 }

@@ -22,7 +22,7 @@ def add_food():
     try:
         data = request.json
         print(data)
-        contents = ["name", "cafe", "station"]
+        contents = ["name", "cafe", "station", "imgSrc"]
         new_food = Food()
 
         new_id = len(Food.query.all())
