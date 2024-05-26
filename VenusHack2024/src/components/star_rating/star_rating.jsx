@@ -19,7 +19,7 @@ export const StarRating = ({value, onRatingChange}) => {
                         key={ratingValue}
                         className="star" 
                         color={star_color} 
-                        size={30}
+                        size={24}
                         onClick={() => onRatingChange(ratingValue)}
                         />
                 );
