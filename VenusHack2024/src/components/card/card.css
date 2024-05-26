@@ -25,6 +25,8 @@
     margin: 0.7rem 5%;
     height: 2em;
     font-size: 30px;
+    width: 200px;
+    margin-left: 15px;
 }
 
 .card-body h1{

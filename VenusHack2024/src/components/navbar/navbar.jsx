@@ -1,10 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./navbar.css";
 import { useRef } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { Center, IconButton } from "@chakra-ui/react";
-import { BellIcon } from "@chakra-ui/icons";
+import { CiHeart } from "react-icons/ci";
 
 function Navbar() {
   const navRef = useRef();
@@ -12,11 +12,21 @@ function Navbar() {
   const showNavbar = () => {
     navRef.current.classList.toggle("responsive_nav");
   };
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate("/like"); // Replace '/home' with your desired route
+  };
 
   return (
     <header>
-      <Link to="http://localhost:5173/"> {<img src="./assets/white_logo.png" alt="Logo" className="nav-logo" />} </Link>
-      <div className="spacer"></div>
+      <Link to="http://localhost:5173/">
+        {" "}
+        {
+          <img src="./assets/white_logo.png" alt="Logo" className="nav-logo" />
+        }{" "}
+      </Link>
+
       <nav ref={navRef}>
         <Link to="/brandywine">Brandywine</Link>
         <Link to="/anteatery">Anteatery</Link>
@@ -28,15 +38,9 @@ function Navbar() {
       <button className="nav-btn" onClick={showNavbar}>
         <FaBars />
       </button>
-      <IconButton
-          height={"55%"}
-          width={"4.5%"}
-          bg={"#ff6347"}
-          variant="outline"
-          color={"#00000"}
-          aria-label="Send email"
-          icon={<BellIcon boxSize={20} />}
-        />
+      <button className="icon-button" onClick={handleClick}>
+        <CiHeart className="icon" />
+      </button>
     </header>
   );
 }

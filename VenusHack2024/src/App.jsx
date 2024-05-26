@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom'
 import { LoginPage } from "./pages/login_page/login_page"
 import { CafePage } from './pages/cafe_page/cafe_page'
 import { ComparePage } from './pages/compare_page/compare_page'
+import {LikePage} from './pages/like_page/like_page'
 import './App.css'
 
 async function httpGet(url) {
@@ -39,7 +40,7 @@ function parse_data(food_data){
   return result
 }
 
-const BrandyData = {
+const brandy = {
   //Grubb/ Mainline
   Mainline:
   [
@@ -84,7 +85,7 @@ const BrandyData = {
   // Add more card objects as needed
 };
 
-const anteateryAnteateryData = {
+const anteatery = {
   //Home
   Home:
   [
@@ -115,31 +116,31 @@ const anteateryAnteateryData = {
   ]
 };
 
-var FoodData = await httpGet("http://localhost/db/foods");
-console.log(FoodData)
+// var FoodData = await httpGet("http://localhost/db/foods");
+// console.log(FoodData)
 
 
-var anteatery = {}
-var brandy = {}
-for(var i = 0; i < FoodData.length; i++){
-  const food = FoodData[i]
-  console.log(food)
-  if(food.cafe == "Brandywine"){
-    if(!brandy.hasOwnProperty(food.station)){
-      console.log(food.station)
-      brandy[food.station] = []
-    }
-    console.log(brandy[food.station])
-    brandy[food.station].push({id: food.id, imgSrc: food.imgSrc, title: food.name, rate: food.rate / 100, comment_num: food.reviews})
-  }else{
-    if(!anteatery.hasOwnProperty(food.station)){
-      anteatery[food.station] = []
-    }
-    anteatery[food.station].push({id: food.id, imgSrc: food.imgSrc, title: food.name, rate: food.rate / 100, comment_num: food.reviews})
-  }
-}
-console.log(anteatery)
-console.log(brandy)
+// var anteatery = {}
+// var brandy = {}
+// for(var i = 0; i < FoodData.length; i++){
+//   const food = FoodData[i]
+//   console.log(food)
+//   if(food.cafe == "Brandywine"){
+//     if(!brandy.hasOwnProperty(food.station)){
+//       console.log(food.station)
+//       brandy[food.station] = []
+//     }
+//     console.log(brandy[food.station])
+//     brandy[food.station].push({id: food.id, imgSrc: food.imgSrc, title: food.name, rate: food.rate / 100, comment_num: food.reviews})
+//   }else{
+//     if(!anteatery.hasOwnProperty(food.station)){
+//       anteatery[food.station] = []
+//     }
+//     anteatery[food.station].push({id: food.id, imgSrc: food.imgSrc, title: food.name, rate: food.rate / 100, comment_num: food.reviews})
+//   }
+// }
+// console.log(anteatery)
+// console.log(brandy)
 
 function App() {
   return(
@@ -148,6 +149,7 @@ function App() {
       <Route path="/brandywine" element={<CafePage cafe_name={"Brandywine"} imgSrc={"assets/brandywine.jpg"} cardData={brandy} />} />
       <Route path="/anteatery" element={<CafePage cafe_name={"The Anteatery"} imgSrc={"assets/anteatery.jpg"} cardData={anteatery} />} />
       <Route path="/compare" element={<ComparePage BrandyData={brandy} AntData={anteatery}/>} />
+      <Route path="/like" element={<LikePage cardData={brandy}/>} />
     </Routes>
   )
 }

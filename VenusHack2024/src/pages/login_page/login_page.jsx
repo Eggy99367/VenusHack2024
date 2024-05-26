@@ -47,7 +47,7 @@ export const LoginPage = () => {
 
   return (
     <div className="login-container">
-      <div className="login-image"></div>
+      <div className="login-image"> </div>
       <div className="login-form">
         {!loggedIn ? (
           <form onSubmit={handleSubmit}>

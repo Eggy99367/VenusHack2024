@@ -1,0 +1,79 @@
+.cards-grid {
+    display: flex;
+    width: 80vw;
+    gap: 40px;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-wrap:wrap;
+    font-size: 15px;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 5%;
+    justify-items: center;
+  }
+  
+  .like-heading {
+    display: flex;
+    /* background-color: #A67B5B; */
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+    width: 100%;
+    font-size: 43px;
+    margin-top: 60px;
+    font-family:'Courier New', Courier, monospace
+  }
+  
+  .cafe-page-container{
+    margin: 0px;
+  }
+  
+  .nav{
+    position: fixed;
+    width: 100%;
+  }
+  
+  .empty{
+    padding-block-start: 7vh;
+  }
+
+  .like-info-container h1{
+    color: red;
+    font-size: 70px;
+    text-shadow: 2px 2px 4px darkgray;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    justify-content: center;
+    margin-bottom: 3vh;
+}
+
+.cafe-info-container p{
+    color: white;
+    font-size: 40px;
+}
+
+.cafe-info-container{
+    border-radius: 2rem;
+}
+
+.rating-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: "40px";
+    width: 100%;
+}
+
+.rating-container p{
+    display: flex;
+    justify-content: right;
+    align-items: right;
+}
+
+.like-img{
+    display: flex;
+    align-items: center;
+    background: url("../../../assets/like.png") no-repeat center center;
+}

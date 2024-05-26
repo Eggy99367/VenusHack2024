@@ -1,11 +1,21 @@
 import React from "react";
 import Navbar from "../../components/navbar/navbar";
 import Card from "../../components/card/card";
-import CafeInfo from "../../components/cafe_info/cafe_info";
-import "./cafe_page.css";
-import { Spacer } from "@chakra-ui/react";
+import "./like_page.css";
 
-export const CafePage = ({ cafe_name, imgSrc, cardData }) => {
+export const LikePage = ({ cardData }) => {
+  const style = {
+    height: "350px",
+    width: "90%",
+    backgroundPosition: "center",
+    flexDirection: "column",
+    justifyContent: "center",
+    backgroundSize: "cover",
+    alignItems: "center",
+    margin: "auto",
+    marginTop: "20px",
+    display: "flex",
+  };
   const flattenedCardData = Object.values(cardData).flat();
   var rate_sum = 0;
   for (var i = 0; i < flattenedCardData.length; i++) {
@@ -18,8 +28,9 @@ export const CafePage = ({ cafe_name, imgSrc, cardData }) => {
       <div className="navnav">
         <Navbar />
       </div>
-      <div className="empty"></div>
-      <CafeInfo imgSrc={imgSrc} cafe_name={cafe_name} overall_rating={rate} />
+      <div className="like-info-container" style={style}>
+        <img src="../../../assets/like.png" width="550px" />
+      </div>
       {Object.entries(cardData).map(([category, cards]) => (
         <div className={"subtitle"} key={category}>
           <h1 className="category-heading">{category}</h1>
@@ -42,4 +53,4 @@ export const CafePage = ({ cafe_name, imgSrc, cardData }) => {
   );
 };
 
-export default CafePage;
+export default LikePage;

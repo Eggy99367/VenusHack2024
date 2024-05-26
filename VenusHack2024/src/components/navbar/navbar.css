@@ -60,7 +60,7 @@ header div,
 nav {
 	display: flex;
 	align-items: center;
-  justify-content: center;
+  justify-content: left;
 }
 
 @media only screen and (max-width: 1024px) {
@@ -102,7 +102,7 @@ nav {
 }
 
 .spacer {
-  width: 5%; /* Adjust the value as needed */
+  width: 3%; /* Adjust the value as needed */
 }
 .spacer2 {
   width: 5%; /* Adjust the value as needed */
@@ -127,3 +127,27 @@ header .nav-logo {
 	max-width: 150px; 
 	object-fit: contain;
   }
+
+  .icon-button {
+    background-color: #db2b39; /* Green background */
+    color: white; /* White text */
+    font-size: 16px; /* Set a font size */
+    cursor: pointer; /* Pointer/hand icon */
+    border-radius: 1.2rem; /* Rounded corners */
+    margin-top: 10px;
+    display: flex;
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    gap: 5px; /* Space between icon and text */
+}
+
+.icon-button .icon {
+    font-size: 24px; /* Increase this to make the icon larger */
+    height: 24px; /* Adjust as needed */
+    width: 24px; /* Adjust as needed */
+}
+
+.icon-button:hover {
+    background-color: #A34343; /* Darker green on hover */
+}
