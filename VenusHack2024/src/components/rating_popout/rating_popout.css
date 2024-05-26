@@ -83,6 +83,8 @@
 }
 
 .card-img2{
+  height: 300px;
   width: 95%;
+  object-fit: cover;
   border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
 }
