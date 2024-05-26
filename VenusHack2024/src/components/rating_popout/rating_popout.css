@@ -1,48 +1,59 @@
-.modal-container {
+.rating-popout-modal-container {
     position: fixed;
-    left: 0;
     top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000; /* Ensure it is on top of other content */
   }
   
-  .modal {
+  .rating-popout-modal {
     border-radius: 5px;
     padding: 2rem;
     background-color: white;
-    width: 30em;
+    width: 30em; /* Width of the modal */
+    height: 40em;
+    max-width: 90%; /* Ensure it is responsive */
   }
   
-  .btn-submit {
+  .rating-popout-btn-submit {
     background-color: #42a942;
-  }
-  
-  .btn-cancel {
-    background-color: #d9534f;
-  }
-  
-  .close {
+    padding: 0.5rem 1rem;
+    border: none;
+    color: white;
     cursor: pointer;
   }
   
-  .modal-header {
+  .rating-popout-btn-cancel {
+    background-color: #d9534f;
+    padding: 0.5rem 1rem;
+    border: none;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .rating-popout-close {
+    cursor: pointer;
+  }
+  
+  .rating-popout-modal-header {
     display: flex;
     justify-content: flex-end;
     font-size: 2rem;
   }
   
-  .modal-content {
+  .rating-popout-modal-content {
     margin-bottom: 1rem;
     align-items: center;
 
     
   }
   
-  .modal-footer {
+  .rating-popout-modal-footer {
     display: flex;
     justify-content: space-evenly;
   }

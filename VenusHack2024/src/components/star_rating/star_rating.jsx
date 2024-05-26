@@ -1,6 +1,6 @@
 import React from "react";
-import { FaStar } from 'react-icons/fa'
-import './star_rating.css'
+import { FaStar } from "react-icons/fa";
+import "./star_rating.css";
 
 export const StarRating = ({value, onRatingChange}) => {
     return (
@@ -19,7 +19,7 @@ export const StarRating = ({value, onRatingChange}) => {
                         key={ratingValue}
                         className="star" 
                         color={star_color} 
-                        size={30}
+                        size={24}
                         onClick={() => onRatingChange(ratingValue)}
                         />
                 );

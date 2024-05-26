@@ -59,14 +59,15 @@ export const RatingPopout = ({ comment_num, rate, onSubmit, onCancel, closeModal
 
   return (
     <div
-      className="modal-container"
+      className="rating-popout-modal-container"
       onClick={(e) => {
-        if (e.target.className === "modal-container") closeModal("");
+        if (e.target.className === "rating-popout-modal-container")
+          closeModal("");
       }}
     >
-      <div className="modal">
-        <div className="modal-header">
-          <p className="close" onClick={() => closeModal("")}>
+      <div className="rating-popout-modal">
+        <div className="rating-popout-modal-header">
+          <p className="rating-popout-close" onClick={() => closeModal("")}>
             &times;
           </p>
         </div>
@@ -74,27 +75,27 @@ export const RatingPopout = ({ comment_num, rate, onSubmit, onCancel, closeModal
         <div className="modal-content">{children}</div>
         <div className="star">
           <StarRating value={rating} onRatingChange={setRating} />
-          <FormControl>
-            <FormLabel>Comment</FormLabel>
+          <FormControl className="form-control">
+            <FormLabel className="form-label">Comment</FormLabel>
             <Input
-              className="input"
+              className="input rating-popout-input"
               onChange={handleChange}
               value={value}
               placeholder="Say something..."
             />
           </FormControl>
         </div>
-        <div className="modal-footer">
+        <div className="rating-popout-modal-footer">
           <button
             type="submit"
-            className="btn btn-submit"
+            className="btn btn-submit rating-popout-btn-submit"
             onClick={() => handleSubmit(id, rating, value, rate, comment_num)}
           >
             Submit
           </button>
           <button
             type="button"
-            className="btn btn-cancel"
+            className="rating-popout-btn-cancel"
             onClick={() => onCancel("")}
           >
             Cancel
@@ -104,3 +105,5 @@ export const RatingPopout = ({ comment_num, rate, onSubmit, onCancel, closeModal
     </div>
   );
 };
+
+export default RatingPopout;

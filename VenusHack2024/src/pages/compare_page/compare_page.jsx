@@ -24,12 +24,8 @@ export const ComparePage = ({
   }
   var ant_rate = Math.round((rate_sum / flattenedAnt.length) * 10) / 10;
 
-  flattenedBrandy.sort(function(x){
-    return x.rate
-  })
-  flattenedAnt.sort(function(x){
-    return x.rate
-  })
+  flattenedBrandy.sort((a, b) => b.rate - a.rate);
+  flattenedAnt.sort((a, b) => b.rate - a.rate);
 
   return (
     <div className='main-container'>

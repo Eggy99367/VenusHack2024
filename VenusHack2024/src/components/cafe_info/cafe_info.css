@@ -2,6 +2,8 @@
     color: white;
     font-size: 70px;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    justify-content: center;
+    margin-bottom: 3vh;
 }
 
 .cafe-info-container p{
@@ -17,6 +19,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: "40px";
     width: 100%;
 }
 

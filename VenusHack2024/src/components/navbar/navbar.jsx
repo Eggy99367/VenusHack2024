@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./navbar.css";
 import { useRef } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
-import { IconButton } from "@chakra-ui/react";
+import { Center, IconButton } from "@chakra-ui/react";
 import { BellIcon } from "@chakra-ui/icons";
 
 function Navbar() {
@@ -15,7 +15,7 @@ function Navbar() {
 
   return (
     <header>
-      <img src="./assets/white_logo.png" alt="Logo" className="nav-logo" />
+      <Link to="http://localhost:5173/"> {<img src="./assets/white_logo.png" alt="Logo" className="nav-logo" />} </Link>
       <div className="spacer"></div>
       <nav ref={navRef}>
         <Link to="/brandywine">Brandywine</Link>
