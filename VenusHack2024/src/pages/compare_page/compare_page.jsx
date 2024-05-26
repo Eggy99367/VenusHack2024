@@ -32,7 +32,7 @@ export const ComparePage = ({
       <Navbar />
       <div className="content-container">
         <div className='brandy-container'>
-          <CafeInfo imgSrc={"assets/brandywine.jpg"} cafe_name={"Brandywine"} overall_rating={brandy_rate} />
+          <CafeInfo imgSrc={"assets/brandywine.jpg"} cafe_name={"Brandywine"} overall_rating={brandy_rate} className="b-info-cont"/>
           <div className = "brandy-elements">
           {flattenedBrandy.map((data, index) => (
             <Card
