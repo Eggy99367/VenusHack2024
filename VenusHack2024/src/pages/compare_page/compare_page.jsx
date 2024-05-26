@@ -36,6 +36,7 @@ export const ComparePage = ({
           <div className = "brandy-elements">
           {flattenedBrandy.map((data, index) => (
             <Card
+              fav={data.fav}
               id={data.id}
               key={index}
               imgSrc={data.imgSrc}
@@ -52,6 +53,8 @@ export const ComparePage = ({
           <div className="ant-elements">
           {flattenedAnt.map((data, index) => (
             <Card
+              fav={data.fav}
+              id={data.id}
               key={index}
               imgSrc={data.imgSrc}
               title={data.title}

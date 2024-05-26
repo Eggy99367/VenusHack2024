@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom'
 import { LoginPage } from "./pages/login_page/login_page"
 import { CafePage } from './pages/cafe_page/cafe_page'
 import { ComparePage } from './pages/compare_page/compare_page'
+import { FavPage } from './pages/fav_page/fav_page'
 import './App.css'
 
 async function httpGet(url) {
@@ -129,7 +130,6 @@ for(var i = 0; i < FoodData.length; i++){
       console.log(food.station)
       brandy[food.station] = []
     }
-    console.log(brandy[food.station])
     brandy[food.station].push({id: food.id, imgSrc: food.imgSrc, title: food.name, rate: food.rate / 100, comment_num: food.reviews})
   }else{
     if(!anteatery.hasOwnProperty(food.station)){
@@ -148,6 +148,7 @@ function App() {
       <Route path="/brandywine" element={<CafePage cafe_name={"Brandywine"} imgSrc={"assets/brandywine.jpg"} cardData={brandy} />} />
       <Route path="/anteatery" element={<CafePage cafe_name={"The Anteatery"} imgSrc={"assets/anteatery.jpg"} cardData={anteatery} />} />
       <Route path="/compare" element={<ComparePage BrandyData={brandy} AntData={anteatery}/>} />
+      <Route path="/favorite" element={<CafePage cafe_name={"Favorite Meals"} imgSrc={"assets/brandywine.jpg"} cardData={brandy} />} />
     </Routes>
   )
 }

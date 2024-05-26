@@ -2,10 +2,10 @@ import React from "react";
 import Navbar from "../../components/navbar/navbar";
 import Card from "../../components/card/card";
 import CafeInfo from "../../components/cafe_info/cafe_info";
-import "./cafe_page.css";
+import "./fav_page.css";
 import { Spacer } from "@chakra-ui/react";
 
-export const CafePage = ({ cafe_name, imgSrc, cardData }) => {
+export const FavPage = ({ cafe_name, imgSrc, cardData }) => {
   const flattenedCardData = Object.values(cardData).flat();
   var rate_sum = 0;
   for (var i = 0; i < flattenedCardData.length; i++) {
@@ -43,4 +43,4 @@ export const CafePage = ({ cafe_name, imgSrc, cardData }) => {
   );
 };
 
-export default CafePage;
+export default FavPage;

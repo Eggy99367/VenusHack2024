@@ -7,7 +7,41 @@ import { CiHeart } from "react-icons/ci";
 import styled from "@emotion/styled";
 import "./card.css";
 
-export const Card = ({ imgSrc, title, rate, comment_num, id}) => {
+function sleep(milliseconds) {
+  return new Promise(resolve => setTimeout(resolve, milliseconds));
+}
+
+function httpPut(id, url, data) {
+  fetch(url + `/${id}`, {
+      method: 'PUT',
+      headers: {
+          'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data)
+  })
+  .then(response => {
+      if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      return response.json();
+  })
+  .then(data => {
+      // console.log(data);
+      return data
+  })
+  .catch(error => {
+      console.error('POST request failed:', error);
+  });
+}
+
+async function set_fav(id, fav){
+  const data = {fav: !fav}
+  httpPut(id, "http://localhost/db/foods", data);
+  await sleep(500);
+  window.location.reload();
+}
+
+export const Card = ({ imgSrc, title, rate, comment_num, id, fav}) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [message, setMessage] = useState("");
 
@@ -43,6 +77,7 @@ export const Card = ({ imgSrc, title, rate, comment_num, id}) => {
             backgroundColor="white"
             color="black"
             zIndex="100"
+            onClick={(id) => {set_fav(id, fav);}}
           />
         </HStack>
         <HStack
@@ -83,7 +118,6 @@ export const Card = ({ imgSrc, title, rate, comment_num, id}) => {
               imgSrc={imgSrc}
             >
               <h1 className="popout_title">Rate {title}</h1>
-              {/* <img src={imgSrc} alt="Card Image" className="card-img2" /> */}
             </RatingPopout>
           )}
         </HStack>

@@ -29,6 +29,7 @@ def add_food():
         setattr(new_food, "id", new_id)
         setattr(new_food, "rate", "0.0")
         setattr(new_food, "reviews", "0")
+        setattr(new_food, "fav", False)
 
         print("db set var")
 
