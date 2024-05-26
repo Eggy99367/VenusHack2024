@@ -5,7 +5,30 @@ import { useRef } from "react";
 import { FaBars, FaHeart, FaTimes } from "react-icons/fa";
 import { Center, IconButton } from "@chakra-ui/react";
 import { BellIcon } from "@chakra-ui/icons";
+import { useNavigate } from 'react-router-dom';
 import { CiHeart } from "react-icons/ci";
+
+function FavoriteButton() {
+  const navigate = useNavigate();
+
+  const goToFavorite = () => {
+    navigate('/favorite');
+  };
+
+  return (
+    <IconButton
+      className="nav-btn-heart"
+      height={"55%"}
+      width={"4.5%"}
+      bg={"#ff6347"}
+      variant="outline"
+      color={"#00000"}
+      aria-label="Send email"
+      icon={<FaHeart boxSize={20} />}
+      onClick={goToFavorite}
+    />
+  );
+}
 
 function Navbar() {
   const navRef = useRef();
@@ -29,16 +52,8 @@ function Navbar() {
       <button className="nav-btn" onClick={showNavbar}>
         <FaBars />
       </button>
-      <IconButton
-      className="nav-btn-heart"
-      height={"55%"}
-      width={"4.5%"}
-      bg={"#ff6347"}
-      variant="outline"
-      color={"#00000"}
-      aria-label="Send email"
-      icon={<FaHeart boxSize={20} />}
-    />
+      <FavoriteButton />
+      
     </header>
   );
 }

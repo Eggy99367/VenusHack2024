@@ -42,3 +42,4 @@ function CafeInfo({ imgSrc, cafe_name, overall_rating }) {
 }
 
 export default CafeInfo;
+

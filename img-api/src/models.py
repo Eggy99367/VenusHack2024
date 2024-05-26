@@ -12,7 +12,7 @@ class Food(db.Model):
     imgSrc = db.Column(db.String(500), nullable=False)
     rate = db.Column(db.String(50), nullable=False)
     reviews = db.Column(db.String(50), nullable=False)
-    fav = db.Column(db.Bool, nullable=False)
+    fav = db.Column(db.Boolean, nullable=False)
 
     def get_info(self):
         return {

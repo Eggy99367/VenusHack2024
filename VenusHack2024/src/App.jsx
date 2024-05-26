@@ -21,25 +21,6 @@ async function httpGet(url) {
   }
 }
 
-function parse_data(food_data){
-  const result = {"anteatery":{}, "brandy":{}}
-  for(const i = 0; i < food_data.length; i++){
-    const food = food_data[i]
-    if(food.cafe == "Brandywine"){
-      if(result["brandy"][food.station] == undefined){
-        result["brandy"][food.station] == []
-      }
-      result["brandy"][food.station].push({id: food.id, imgSrc: food.imgSrc, title: food.name, rate: food.rate, comment_num: food.reviews})
-    }else{
-      if(result["anteatery"][food.station] == undefined){
-        result["anteatery"][food.station] == []
-      }
-      result["anteatery"][food.station].push({id: food.id, imgSrc: food.imgSrc, title: food.name, rate: food.rate, comment_num: food.reviews})
-    }
-  }
-  return result
-}
-
 const BrandyData = {
   //Grubb/ Mainline
   Mainline:
@@ -124,18 +105,17 @@ var anteatery = {}
 var brandy = {}
 for(var i = 0; i < FoodData.length; i++){
   const food = FoodData[i]
-  console.log(food)
   if(food.cafe == "Brandywine"){
     if(!brandy.hasOwnProperty(food.station)){
       console.log(food.station)
       brandy[food.station] = []
     }
-    brandy[food.station].push({id: food.id, imgSrc: food.imgSrc, title: food.name, rate: food.rate / 100, comment_num: food.reviews})
+    brandy[food.station].push({fav: food.fav, id: food.id, imgSrc: food.imgSrc, title: food.name, rate: food.rate / 100, comment_num: food.reviews})
   }else{
     if(!anteatery.hasOwnProperty(food.station)){
       anteatery[food.station] = []
     }
-    anteatery[food.station].push({id: food.id, imgSrc: food.imgSrc, title: food.name, rate: food.rate / 100, comment_num: food.reviews})
+    anteatery[food.station].push({fav: food.fav, id: food.id, imgSrc: food.imgSrc, title: food.name, rate: food.rate / 100, comment_num: food.reviews})
   }
 }
 console.log(anteatery)
@@ -148,7 +128,7 @@ function App() {
       <Route path="/brandywine" element={<CafePage cafe_name={"Brandywine"} imgSrc={"assets/brandywine.jpg"} cardData={brandy} />} />
       <Route path="/anteatery" element={<CafePage cafe_name={"The Anteatery"} imgSrc={"assets/anteatery.jpg"} cardData={anteatery} />} />
       <Route path="/compare" element={<ComparePage BrandyData={brandy} AntData={anteatery}/>} />
-      <Route path="/favorite" element={<CafePage cafe_name={"Favorite Meals"} imgSrc={"assets/brandywine.jpg"} cardData={brandy} />} />
+      <Route path="/favorite" element={<FavPage BrandyData={brandy} AntData={anteatery} />} />
     </Routes>
   )
 }

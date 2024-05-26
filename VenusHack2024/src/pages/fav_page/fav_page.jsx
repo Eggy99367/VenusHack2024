@@ -1,17 +1,25 @@
 import React from "react";
 import Navbar from "../../components/navbar/navbar";
 import Card from "../../components/card/card";
-import CafeInfo from "../../components/cafe_info/cafe_info";
+import FavInfo from "../../components/fav_info/fav_info";
 import "./fav_page.css";
 import { Spacer } from "@chakra-ui/react";
 
-export const FavPage = ({ cafe_name, imgSrc, cardData }) => {
-  const flattenedCardData = Object.values(cardData).flat();
-  var rate_sum = 0;
-  for (var i = 0; i < flattenedCardData.length; i++) {
-    rate_sum += flattenedCardData[i].rate;
+export const FavPage = ({ BrandyData,  AntData }) => {
+  const flattenedBrandyData = Object.values(BrandyData).flat();
+  BrandyData = []
+  for (var d of flattenedBrandyData) {
+    if(d.fav){
+      BrandyData.push(d)
+    }
   }
-  var rate = Math.round((rate_sum / flattenedCardData.length) * 10) / 10;
+  const flattenedAntData = Object.values(AntData).flat();
+  AntData = []
+  for (var d of flattenedAntData) {
+    if(d.fav){
+      AntData.push(d)
+    }
+  }
 
   return (
     <div className="cafe-page-container">
@@ -19,26 +27,41 @@ export const FavPage = ({ cafe_name, imgSrc, cardData }) => {
         <Navbar />
       </div>
       <div className="empty"></div>
-      <CafeInfo imgSrc={imgSrc} cafe_name={cafe_name} overall_rating={rate} />
-      {Object.entries(cardData).map(([category, cards]) => (
-        <div className={"subtitle"} key={category}>
-          <h1 className="category-heading">{category}</h1>
-          <div className="cards-grid">
-            {cards.map((data, index) => (
-              <Card
-                fav={data.fav}
-                id={data.id}
-                key={index}
-                imgSrc={data.imgSrc}
-                title={data.title}
-                rate={data.rate}
-                comment_num={data.comment_num}
-                link={data.link}
-              />
-            ))}
-          </div>
+      <FavInfo imgSrc={"../../../assets/favorite.jpg"} cafe_name={"Favorite"} />
+      <div className={"subtitle"}>
+        <h1 className="category-heading">The Anteatery</h1>
+        <div className="cards-grid">
+          {AntData.map((data, index) => (
+            <Card
+              fav={data.fav}
+              id={data.id}
+              key={index}
+              imgSrc={data.imgSrc}
+              title={data.title}
+              rate={data.rate}
+              comment_num={data.comment_num}
+              link={data.link}
+            />
+          ))}
         </div>
-      ))}
+      </div>
+      <div className={"subtitle"}>
+        <h1 className="category-heading">Brandywine</h1>
+        <div className="cards-grid">
+          {BrandyData.map((data, index) => (
+            <Card
+              fav={data.fav}
+              id={data.id}
+              key={index}
+              imgSrc={data.imgSrc}
+              title={data.title}
+              rate={data.rate}
+              comment_num={data.comment_num}
+              link={data.link}
+            />
+          ))}
+        </div>
+      </div>
     </div>
   );
 };

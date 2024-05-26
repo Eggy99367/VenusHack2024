@@ -36,13 +36,16 @@ function httpPut(id, url, data) {
 }
 
 async function set_fav(id, fav){
+  console.log(id)
   const data = {fav: !fav}
   httpPut(id, "http://localhost/db/foods", data);
   await sleep(500);
+  console.log(data)
   window.location.reload();
 }
 
 export const Card = ({ imgSrc, title, rate, comment_num, id, fav}) => {
+  console.log(fav)
   const [modalOpen, setModalOpen] = useState(false);
   const [message, setMessage] = useState("");
   const [isHovering, setIsHovering] = useState(false); // State to track hovering
@@ -73,7 +76,7 @@ export const Card = ({ imgSrc, title, rate, comment_num, id, fav}) => {
             marginRight="9px"
             variant="unstyled"
             borderColor="white"
-            icon={<LargeIcon />}
+            icon={fav ? <FaHeart color="red"></FaHeart> : <LargeIcon />}
             justifyContent={"center"}
             alignSelf={"end"}
             width="20%"
@@ -81,7 +84,7 @@ export const Card = ({ imgSrc, title, rate, comment_num, id, fav}) => {
             backgroundColor="white"
             color="black"
             zIndex="100"
-            onClick={(id) => {set_fav(id, fav);}}
+            onClick={() => {set_fav(id, fav);}}
             onMouseEnter={() => setIsHovering(true)} // Set hovering state to true on mouse enter
             onMouseLeave={() => setIsHovering(false)} // Set hovering state to false on mouse leave
           />
