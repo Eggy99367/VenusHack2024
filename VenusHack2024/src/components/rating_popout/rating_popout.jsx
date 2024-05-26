@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import "./rating_popout.css";
-import StarRating from "../user_rate/star_rating";
+import StarRating from "../star_rating/star_rating";
 import {
   FormControl,
   FormLabel,
@@ -8,9 +8,18 @@ import {
   FormHelperText,
 } from "@chakra-ui/react";
 
-export const RatingPopout = ({ onSubmit, onCancel, closeModal, children }) => {
-  const [value, setValue] = React.useState("");
+export const RatingPopout = ({ onSubmit, onCancel, closeModal, children, imgSrc }) => {
+  const [rating, setRating] = useState(0); // Initialize rating state
+  const [value, setValue] = useState(""); // Initialize value state
+
   const handleChange = (event) => setValue(event.target.value);
+
+  const handleSubmit = (rating, comment) => {
+    console.log(rating);
+    console.log(comment);
+    onSubmit("");
+  };
+
   return (
     <div
       className="modal-container"
@@ -24,9 +33,10 @@ export const RatingPopout = ({ onSubmit, onCancel, closeModal, children }) => {
             &times;
           </p>
         </div>
+        <img src={imgSrc} alt="Card Image" className="card-img2" />
         <div className="modal-content">{children}</div>
         <div className="star">
-          <StarRating />
+          <StarRating value={rating} onRatingChange={setRating} />
           <FormControl>
             <FormLabel>Comment</FormLabel>
             <Input
@@ -41,7 +51,7 @@ export const RatingPopout = ({ onSubmit, onCancel, closeModal, children }) => {
           <button
             type="submit"
             className="btn btn-submit"
-            onClick={() => onSubmit("")}
+            onClick={() => handleSubmit(rating, value)}
           >
             Submit
           </button>

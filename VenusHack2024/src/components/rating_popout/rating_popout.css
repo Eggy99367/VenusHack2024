@@ -38,6 +38,8 @@
   .modal-content {
     margin-bottom: 1rem;
     align-items: center;
+
+    
   }
   
   .modal-footer {
@@ -53,4 +55,34 @@
   .input{
     size:"lg";
     visibility:"outline";
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
   }
+
+  .modal-container .star {
+  align-content: center;
+  margin-bottom: 10%;
+}
+
+.form-control {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.form-label {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #6b6b6b;
+}
+
+.card-img2{
+  width: 95%;
+  border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
+}
