@@ -26,8 +26,7 @@ function Navbar() {
           <img src="./assets/white_logo.png" alt="Logo" className="nav-logo" />
         }{" "}
       </Link>
-
-      <nav ref={navRef}>
+      <nav ref={navRef} className="nav-links">
         <Link to="/brandywine">Brandywine</Link>
         <Link to="/anteatery">Anteatery</Link>
         <Link to="/compare">Compare</Link>
