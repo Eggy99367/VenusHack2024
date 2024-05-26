@@ -27,7 +27,8 @@ function httpPost(url, data) {
         return response.json();
     })
     .then(data => {
-        console.log(data);
+        // console.log(data);
+        return data
     })
     .catch(error => {
         console.error('POST request failed:', error);
@@ -63,4 +64,5 @@ function add_data(){
 }
 
 // Example usage:
-httpGet("http://localhost/db/foods");
+const FoodData = httpGet("http://localhost/db/foods");
+console.log(FoodData)
