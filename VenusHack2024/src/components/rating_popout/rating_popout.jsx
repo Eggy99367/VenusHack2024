@@ -38,10 +38,10 @@ export const RatingPopout = ({ onSubmit, onCancel, closeModal, children, imgSrc 
         <div className="modal-content">{children}</div>
         <div className="star">
           <StarRating value={rating} onRatingChange={setRating} />
-          <FormControl>
-            <FormLabel>Comment</FormLabel>
+          <FormControl className="form-control">
+            <FormLabel className="form-label">Comment</FormLabel>
             <Input
-              className="rating-popout-input"
+              className="input rating-popout-input"
               onChange={handleChange}
               value={value}
               placeholder="Say something..."
@@ -51,7 +51,7 @@ export const RatingPopout = ({ onSubmit, onCancel, closeModal, children, imgSrc 
         <div className="rating-popout-modal-footer">
           <button
             type="submit"
-            className="btn btn-submit"
+            className="btn btn-submit rating-popout-btn-submit"
             onClick={() => handleSubmit(rating, value)}
           >
             Submit
