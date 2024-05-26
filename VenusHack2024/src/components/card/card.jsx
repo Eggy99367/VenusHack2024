@@ -5,7 +5,7 @@ import { HStack, Box } from "@chakra-ui/react";
 import { RatingPopout } from "../rating_popout/rating_popout";
 import "./card.css";
 
-export const Card = ({ imgSrc, title, rate, comment_num }) => {
+export const Card = ({ imgSrc, title, rate, comment_num, id}) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [message, setMessage] = useState("");
 
@@ -23,10 +23,10 @@ export const Card = ({ imgSrc, title, rate, comment_num }) => {
           <p>{rate ?? "0"}</p>
         </Box>
         <Box width="62%">
-          <StarRating value={rate ?? 0} />
+          <StarRating value={rate ?? "0"} />
         </Box>
         <Box width="26%">
-          <p>{comment_num ?? 0} reviews</p>
+          <p>{comment_num ?? "0"} reviews</p>
         </Box>
       </HStack>
 
@@ -42,6 +42,9 @@ export const Card = ({ imgSrc, title, rate, comment_num }) => {
         </button>
         {modalOpen && (
           <RatingPopout
+            rate = {rate}
+            comment_num={comment_num}
+            id={id}
             closeModal={handleButtonClick}
             onSubmit={handleButtonClick}
             onCancel={handleButtonClick}

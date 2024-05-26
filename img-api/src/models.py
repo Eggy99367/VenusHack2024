@@ -10,8 +10,8 @@ class Food(db.Model):
     cafe = db.Column(db.String(50), nullable=False)
     station = db.Column(db.String(50), nullable=False)
     imgSrc = db.Column(db.String(500), nullable=False)
-    rate = db.Column(db.Integer, nullable=False)
-    reviews = db.Column(db.Integer, nullable=False)
+    rate = db.Column(db.String(50), nullable=False)
+    reviews = db.Column(db.String(50), nullable=False)
 
     def get_info(self):
         return {

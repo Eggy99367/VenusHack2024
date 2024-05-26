@@ -40,6 +40,7 @@ export const ComparePage = ({
           <div className = "brandy-elements">
           {flattenedBrandy.map((data, index) => (
             <Card
+              id={data.id}
               key={index}
               imgSrc={data.imgSrc}
               title={data.title}

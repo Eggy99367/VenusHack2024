@@ -8,15 +8,52 @@ import {
   FormHelperText,
 } from "@chakra-ui/react";
 
-export const RatingPopout = ({ onSubmit, onCancel, closeModal, children, imgSrc }) => {
+function sleep(milliseconds) {
+  return new Promise(resolve => setTimeout(resolve, milliseconds));
+}
+
+function httpPut(id, url, data) {
+  fetch(url + `/${id}`, {
+      method: 'PUT',
+      headers: {
+          'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data)
+  })
+  .then(response => {
+      if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      return response.json();
+  })
+  .then(data => {
+      // console.log(data);
+      return data
+  })
+  .catch(error => {
+      console.error('POST request failed:', error);
+  });
+}
+
+
+export const RatingPopout = ({ comment_num, rate, onSubmit, onCancel, closeModal, children, imgSrc, id, food_data}) => {
   const [rating, setRating] = useState(0); // Initialize rating state
   const [value, setValue] = useState(""); // Initialize value state
 
   const handleChange = (event) => setValue(event.target.value);
 
-  const handleSubmit = (rating, comment) => {
+  async function handleSubmit(id, rating, comment, orig_rate, orig_comment_num){
     console.log(rating);
     console.log(comment);
+    console.log(orig_rate, orig_comment_num)
+    orig_rate = Number(orig_rate)
+    orig_comment_num = Number(orig_comment_num)
+    // const data = {rate: ((orig_rate * 100) + (rating * 100)) / (orig_comment_num + 1), reviews: (orig_comment_num + 1)}
+    const data = {rate: ((rating * 100) + ((orig_rate * 100) * orig_comment_num)) / (orig_comment_num + 1), reviews: (orig_comment_num + 1)}
+    console.log(data)
+    httpPut(id, "http://localhost/db/foods", data);
+    await sleep(500);
+    window.location.reload();
     onSubmit("");
   };
 
@@ -51,7 +88,7 @@ export const RatingPopout = ({ onSubmit, onCancel, closeModal, children, imgSrc 
           <button
             type="submit"
             className="btn btn-submit"
-            onClick={() => handleSubmit(rating, value)}
+            onClick={() => handleSubmit(id, rating, value, rate, comment_num)}
           >
             Submit
           </button>

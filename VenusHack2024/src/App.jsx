@@ -130,12 +130,12 @@ for(var i = 0; i < FoodData.length; i++){
       brandy[food.station] = []
     }
     console.log(brandy[food.station])
-    brandy[food.station].push({id: food.id, imgSrc: food.imgSrc, title: food.name, rate: food.rate, comment_num: food.reviews})
+    brandy[food.station].push({id: food.id, imgSrc: food.imgSrc, title: food.name, rate: food.rate / 100, comment_num: food.reviews})
   }else{
     if(!anteatery.hasOwnProperty(food.station)){
       anteatery[food.station] = []
     }
-    anteatery[food.station].push({id: food.id, imgSrc: food.imgSrc, title: food.name, rate: food.rate, comment_num: food.reviews})
+    anteatery[food.station].push({id: food.id, imgSrc: food.imgSrc, title: food.name, rate: food.rate / 100, comment_num: food.reviews})
   }
 }
 console.log(anteatery)

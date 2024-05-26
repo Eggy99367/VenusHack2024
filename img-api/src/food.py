@@ -27,8 +27,8 @@ def add_food():
 
         new_id = len(Food.query.all())
         setattr(new_food, "id", new_id)
-        setattr(new_food, "rate", 0)
-        setattr(new_food, "reviews", 0)
+        setattr(new_food, "rate", "0.0")
+        setattr(new_food, "reviews", "0")
 
         print("db set var")
 
@@ -49,7 +49,7 @@ def update_food(id):
         print(1)
         contents = ["rate", "reviews"]
         data = request.json
-        food = food.query.get_or_404(id)
+        food = Food.query.get_or_404(id)
         for content in contents:
             if content not in data:
                 continue
