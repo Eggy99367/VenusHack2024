@@ -52,7 +52,7 @@ export const Card = ({ imgSrc, title, rate, comment_num, id}) => {
           marginBottom={"10px"}
         >
           <Box width="10%">
-            <p>{rate ?? "0"}</p>
+            <p>{parseFloat(rate.toFixed(2)) ?? "0"}</p>
           </Box>
           <Box width="55%">
             <StarRating value={rate ?? 0} />
