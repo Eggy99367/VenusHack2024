@@ -128,6 +128,10 @@ header .nav-logo {
 	object-fit: contain;
   }
 
+  .nav-btn-heart:hover {
+	filter: brightness(90%); /* Adjust the brightness level as desired */
+  }
+
   .icon-button {
     background-color: #db2b39; /* Green background */
     color: white; /* White text */

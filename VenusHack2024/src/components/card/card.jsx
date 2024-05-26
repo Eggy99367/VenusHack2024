@@ -4,20 +4,61 @@ import { StarRating } from "../star_rating/star_rating";
 import { HStack, Box, Spacer, IconButton } from "@chakra-ui/react";
 import { RatingPopout } from "../rating_popout/rating_popout";
 import { CiHeart } from "react-icons/ci";
+import { FaHeart } from "react-icons/fa"; // Import the Font Awesome heart icon
 import styled from "@emotion/styled";
 import "./card.css";
 
-export const Card = ({ imgSrc, title, rate, comment_num, id}) => {
+function sleep(milliseconds) {
+  return new Promise(resolve => setTimeout(resolve, milliseconds));
+}
+
+function httpPut(id, url, data) {
+  fetch(url + `/${id}`, {
+      method: 'PUT',
+      headers: {
+          'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data)
+  })
+  .then(response => {
+      if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      return response.json();
+  })
+  .then(data => {
+      // console.log(data);
+      return data
+  })
+  .catch(error => {
+      console.error('POST request failed:', error);
+  });
+}
+
+async function set_fav(id, fav){
+  console.log(id)
+  const data = {fav: !fav}
+  httpPut(id, "http://localhost/db/foods", data);
+  await sleep(500);
+  console.log(data)
+  window.location.reload();
+}
+
+export const Card = ({ imgSrc, title, rate, comment_num, id, fav}) => {
+  console.log(fav)
   const [modalOpen, setModalOpen] = useState(false);
   const [message, setMessage] = useState("");
+  const [isHovering, setIsHovering] = useState(false); // State to track hovering
 
   const handleButtonClick = (value) => {
     setModalOpen(false);
     setMessage(value);
   };
-  const LargeIcon = styled(CiHeart)`
-    width: 24px; // Adjust the width as needed
-    height: 24px; // Adjust the height as needed
+
+  const LargeIcon = styled(isHovering ? FaHeart : CiHeart)` // Use Font Awesome heart when hovering
+    width: 24px;
+    height: 24px;
+    color: ${isHovering ? "pink" : "black"};
   `;
 
   return (
@@ -35,7 +76,7 @@ export const Card = ({ imgSrc, title, rate, comment_num, id}) => {
             marginRight="9px"
             variant="unstyled"
             borderColor="white"
-            icon={<LargeIcon />}
+            icon={fav ? <FaHeart color="red"></FaHeart> : <LargeIcon />}
             justifyContent={"center"}
             alignSelf={"end"}
             width="20%"
@@ -43,6 +84,9 @@ export const Card = ({ imgSrc, title, rate, comment_num, id}) => {
             backgroundColor="white"
             color="black"
             zIndex="100"
+            onClick={() => {set_fav(id, fav);}}
+            onMouseEnter={() => setIsHovering(true)} // Set hovering state to true on mouse enter
+            onMouseLeave={() => setIsHovering(false)} // Set hovering state to false on mouse leave
           />
         </HStack>
         <HStack
@@ -74,16 +118,15 @@ export const Card = ({ imgSrc, title, rate, comment_num, id}) => {
           </button>
           {modalOpen && (
             <RatingPopout
-            rate = {rate}
-            comment_num={comment_num}
-            id={id}
+              rate={rate}
+              comment_num={comment_num}
+              id={id}
               closeModal={handleButtonClick}
               onSubmit={handleButtonClick}
               onCancel={handleButtonClick}
               imgSrc={imgSrc}
             >
               <h1 className="popout_title">Rate {title}</h1>
-              {/* <img src={imgSrc} alt="Card Image" className="card-img2" /> */}
             </RatingPopout>
           )}
         </HStack>

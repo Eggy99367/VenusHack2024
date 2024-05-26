@@ -26,6 +26,7 @@ export const CafePage = ({ cafe_name, imgSrc, cardData }) => {
           <div className="cards-grid">
             {cards.map((data, index) => (
               <Card
+                fav={data.fav}
                 id={data.id}
                 key={index}
                 imgSrc={data.imgSrc}

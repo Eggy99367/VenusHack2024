@@ -2,7 +2,7 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./navbar.css";
 import { useRef } from "react";
-import { FaBars, FaTimes } from "react-icons/fa";
+import { FaBars, FaHeart, FaTimes } from "react-icons/fa";
 import { Center, IconButton } from "@chakra-ui/react";
 import { CiHeart } from "react-icons/ci";
 

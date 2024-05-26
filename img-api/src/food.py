@@ -29,6 +29,7 @@ def add_food():
         setattr(new_food, "id", new_id)
         setattr(new_food, "rate", "0.0")
         setattr(new_food, "reviews", "0")
+        setattr(new_food, "fav", False)
 
         print("db set var")
 
@@ -46,18 +47,21 @@ def add_food():
 def update_food(id):
     print("update food")
     try:
-        print(1)
-        contents = ["rate", "reviews"]
+        contents = ["rate", "reviews", "fav"]
         data = request.json
+        print(data)
         food = Food.query.get_or_404(id)
         for content in contents:
             if content not in data:
                 continue
             if data[content] == "":
                 data[content] = None
+            print("update", content, data[content])
             setattr(food, content, data[content])
         db.session.commit()
+        print("db commit")
         return jsonify(food.get_info())
     except Exception as e:
-            return jsonify({'error': str(e)}), 400
+        print(e)
+        return jsonify({'error': str(e)}), 400
 
