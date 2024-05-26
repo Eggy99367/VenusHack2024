@@ -8,6 +8,7 @@ class Food(db.Model):
     id = db.Column(db.String(40), primary_key=True, nullable=False, unique=True)
     name = db.Column(db.String(50), nullable=False)
     cafe = db.Column(db.String(50), nullable=False)
+    station = db.Column(db.String(50), nullable=False)
     rate = db.Column(db.Integer, nullable=False)
     reviews = db.Column(db.Integer, nullable=False)
 
@@ -16,6 +17,7 @@ class Food(db.Model):
             "id": self.id,
             "name": self.name,
             "cafe": self.cafe,
+            "station": self.station,
             "rate": self.rate,
             "reviews": self.reviews
         }
