@@ -1,8 +1,10 @@
 from flask import Flask, request, jsonify
 from src.models import db, Food
 from src import food
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:123456@crm-db/saas'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
