@@ -14,6 +14,8 @@ function Navbar() {
   };
 
   return (
+    <header>
+      <img src="./assets/white_logo.png" alt="Logo" className="nav-logo" />
     <header >
       <h3>LOGO</h3>
       <div className="spacer"></div>
@@ -29,15 +31,14 @@ function Navbar() {
         <FaBars />
       </button>
       <IconButton
-        height={"55%"}
-        width={"4.5%"}
-        bg={"#ff6347"}
-        variant="outline"
-        color={"#00000"}
-        aria-label="Send email"
-        icon={<BellIcon boxSize={20} />}
-        margin-top={"10%"}
-      />
+          height={"55%"}
+          width={"4.5%"}
+          bg={"#ff6347"}
+          variant="outline"
+          color={"#00000"}
+          aria-label="Send email"
+          icon={<BellIcon boxSize={20} />}
+        />
     </header>
   );
 }

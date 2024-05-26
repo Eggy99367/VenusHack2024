@@ -49,40 +49,53 @@
   .rating-popout-modal-content {
     margin-bottom: 1rem;
     align-items: center;
+
+    
   }
   
   .rating-popout-modal-footer {
     display: flex;
     justify-content: space-evenly;
-    margin-top: 1rem; /* Add margin for spacing */
   }
-  
-  .rating-popout-star {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 1rem; /* Adjust margin as needed */
+
+  .modal-container .star{
+    align-content: center;
+    margin-bottom: 10%;
   }
-  
-  .rating-popout-input {
-    margin-top: 1rem; /* Add margin for spacing */
-    padding: 0.5rem; /* Adjust padding for input field */
+
+  .input{
+    size:"lg";
+    visibility:"outline";
+    width: 100%;
+    padding: 0.5rem;
     border: 1px solid #ccc;
     border-radius: 4px;
-    width: 100%; /* Ensure it spans the full width of the container */
+    font-size: 1rem;
   }
-  
-  /* New styles for the image container */
-  .rating-popout-image-container {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 1rem; /* Adjust margin as needed */
-  }
-  
-  .rating-popout-image {
-    width: 350px; /* Fixed width for the image */
-    height: 250px; /* Fixed height for the image to make it a square */
-    object-fit: cover; /* Ensure the image covers the area without distortion */
-    border-radius: 5px; /* Optional: add border radius for rounded corners */
-  }
-  
+
+  .modal-container .star {
+  align-content: center;
+  margin-bottom: 10%;
+}
+
+.form-control {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.form-label {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #6b6b6b;
+}
+
+.card-img2{
+  height: 300px;
+  width: 95%;
+  object-fit: cover;
+  border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
+}

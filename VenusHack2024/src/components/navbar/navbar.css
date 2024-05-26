@@ -24,9 +24,9 @@ header {
 	justify-content: space-between;
 	height: 65px;
 	padding: 0 2rem;
-  margin-left: 5%;
-  margin-right: 5%;
-  margin-top: 2.5%;
+	margin-left: 5%;
+	margin-right: 5%;
+	margin-top: 2.5%;
 	background-color: var(--mainColor);
 	color: var(--textColor);
   border-radius: 4rem;
@@ -53,6 +53,7 @@ header .nav-btn {
 	visibility: hidden;
 	opacity: 0;
 	font-size: 1.8rem;
+	
 }
 
 header div,
@@ -114,3 +115,11 @@ nav {
   align-items: center;
   margin-top: 53px;
 }
+
+header img 
+{
+	max-height: 90%; 
+	max-width: 90%;
+	object-fit: contain;
+}
+

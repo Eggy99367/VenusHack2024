@@ -24,15 +24,8 @@ export const ComparePage = ({
   }
   var ant_rate = Math.round((rate_sum / flattenedAnt.length) * 10) / 10;
 
-  flattenedBrandy.sort(function(x){
-    return x.rate
-  })
-  flattenedAnt.sort(function(x){
-    return x.rate
-  })
-
-  console.log(flattenedBrandy)
-  console.log(flattenedAnt)
+  flattenedBrandy.sort((a, b) => b.rate - a.rate);
+  flattenedAnt.sort((a, b) => b.rate - a.rate);
 
   return (
     <div className='main-container'>
@@ -40,6 +33,7 @@ export const ComparePage = ({
       <div className="content-container">
         <div className='brandy-container'>
           <CafeInfo imgSrc={"assets/brandywine.jpg"} cafe_name={"Brandywine"} overall_rating={brandy_rate} />
+          <div className = "brandy-elements">
           {flattenedBrandy.map((data, index) => (
             <Card
               key={index}
@@ -51,8 +45,10 @@ export const ComparePage = ({
             />
           ))}
         </div>
+        </div>
         <div className='ant-container'>
           <CafeInfo imgSrc={"assets/anteatery.jpg"} cafe_name={"The Anteatery"} overall_rating={ant_rate} />
+          <div className="ant-elements">
           {flattenedAnt.map((data, index) => (
             <Card
               key={index}
@@ -63,6 +59,7 @@ export const ComparePage = ({
               link={data.link}
             />
           ))}
+        </div>
         </div>
       </div>
     </div>

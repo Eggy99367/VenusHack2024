@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import "./rating_popout.css";
-import StarRating from "../user_rate/star_rating";
+import StarRating from "../star_rating/star_rating";
 import {
   FormControl,
   FormLabel,
@@ -8,15 +8,18 @@ import {
   FormHelperText,
 } from "@chakra-ui/react";
 
-export const RatingPopout = ({
-  onSubmit,
-  onCancel,
-  closeModal,
-  children,
-  imgSrc,
-}) => {
-  const [value, setValue] = React.useState("");
+export const RatingPopout = ({ onSubmit, onCancel, closeModal, children, imgSrc }) => {
+  const [rating, setRating] = useState(0); // Initialize rating state
+  const [value, setValue] = useState(""); // Initialize value state
+
   const handleChange = (event) => setValue(event.target.value);
+
+  const handleSubmit = (rating, comment) => {
+    console.log(rating);
+    console.log(comment);
+    onSubmit("");
+  };
+
   return (
     <div
       className="rating-popout-modal-container"
@@ -31,14 +34,10 @@ export const RatingPopout = ({
             &times;
           </p>
         </div>
-        <div className="rating-popout-modal-content">
-          <div className="rating-popout-image-container">
-            <img src={imgSrc} alt="Popout" className="rating-popout-image" />
-          </div>
-          {children}
-        </div>
-        <div className="rating-popout-star">
-          <StarRating />
+        <img src={imgSrc} alt="Card Image" className="card-img2" />
+        <div className="modal-content">{children}</div>
+        <div className="star">
+          <StarRating value={rating} onRatingChange={setRating} />
           <FormControl>
             <FormLabel>Comment</FormLabel>
             <Input
@@ -52,8 +51,8 @@ export const RatingPopout = ({
         <div className="rating-popout-modal-footer">
           <button
             type="submit"
-            className="rating-popout-btn-submit"
-            onClick={() => onSubmit("")}
+            className="btn btn-submit"
+            onClick={() => handleSubmit(rating, value)}
           >
             Submit
           </button>
