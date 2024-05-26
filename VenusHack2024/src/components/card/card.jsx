@@ -45,9 +45,9 @@ export const Card = ({ imgSrc, title, rate, comment_num }) => {
             closeModal={handleButtonClick}
             onSubmit={handleButtonClick}
             onCancel={handleButtonClick}
+            imgSrc={imgSrc}
           >
             <h1 className="popout_title">Rate {title}</h1>
-            <img src={imgSrc} alt="Card Image" className="card-img2" />
           </RatingPopout>
         )}
       </HStack>
