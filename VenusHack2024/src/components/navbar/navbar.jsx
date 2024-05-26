@@ -2,9 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./navbar.css";
 import { useRef } from "react";
-import { FaBars, FaTimes } from "react-icons/fa";
+import { FaBars, FaHeart, FaTimes } from "react-icons/fa";
 import { Center, IconButton } from "@chakra-ui/react";
 import { BellIcon } from "@chakra-ui/icons";
+import { CiHeart } from "react-icons/ci";
 
 function Navbar() {
   const navRef = useRef();
@@ -29,14 +30,15 @@ function Navbar() {
         <FaBars />
       </button>
       <IconButton
-          height={"55%"}
-          width={"4.5%"}
-          bg={"#ff6347"}
-          variant="outline"
-          color={"#00000"}
-          aria-label="Send email"
-          icon={<BellIcon boxSize={20} />}
-        />
+      className="nav-btn-heart"
+      height={"55%"}
+      width={"4.5%"}
+      bg={"#ff6347"}
+      variant="outline"
+      color={"#00000"}
+      aria-label="Send email"
+      icon={<FaHeart boxSize={20} />}
+    />
     </header>
   );
 }

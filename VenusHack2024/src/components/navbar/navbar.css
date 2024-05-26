@@ -127,3 +127,7 @@ header .nav-logo {
 	max-width: 150px; 
 	object-fit: contain;
   }
+
+  .nav-btn-heart:hover {
+	filter: brightness(90%); /* Adjust the brightness level as desired */
+  }

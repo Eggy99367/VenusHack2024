@@ -8,8 +8,10 @@
 
 .brandy-container, .ant-container {
     display: flex;
+    gap: 50px;
     flex-direction: column; 
     align-items: center; 
+    justify-content: center;
     flex: 1; 
 }
 
@@ -18,5 +20,14 @@
 	grid-template-columns: repeat(2, 1fr);
     flex-direction: column; 
     align-items: center; 
-    flex: 1; 
+    justify-content: center;
+    flex: 1;
 }
+
+.b-info-cont{
+    margin: 40px;
+    gap: 20px;
+    height: 100px;
+}
+
+
