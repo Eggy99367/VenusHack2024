@@ -31,9 +31,6 @@ export const ComparePage = ({
     return x.rate
   })
 
-  console.log(flattenedBrandy)
-  console.log(flattenedAnt)
-
   return (
     <div className='main-container'>
       <Navbar />
