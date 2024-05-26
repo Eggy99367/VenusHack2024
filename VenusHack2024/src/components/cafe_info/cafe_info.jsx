@@ -24,7 +24,12 @@ function CafeInfo({ imgSrc, cafe_name, overall_rating }) {
         <div style={{ width: "5%" }}>
           <p>{overall_rating ?? "0"}</p>
         </div>
-        <div style={{ width: "200px" }}>
+        <div
+          style={{
+            width: "150px",
+            justifyContent: "center"
+          }}
+        >
           {overall_rating ? (
             <StarRating value={overall_rating} />
           ) : (
