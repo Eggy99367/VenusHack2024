@@ -1,81 +1,83 @@
 .rating-popout-modal-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 1000; /* Ensure it is on top of other content */
-  }
-  
-  .rating-popout-modal {
-    border-radius: 5px;
-    padding: 2rem;
-    background-color: white;
-    width: 30em; /* Width of the modal */
-    height: 40em;
-    max-width: 90%; /* Ensure it is responsive */
-  }
-  
-  .rating-popout-btn-submit {
-    background-color: #42a942;
-    padding: 0.5rem 1rem;
-    border: none;
-    color: white;
-    cursor: pointer;
-  }
-  
-  .rating-popout-btn-cancel {
-    background-color: #d9534f;
-    padding: 0.5rem 1rem;
-    border: none;
-    color: white;
-    cursor: pointer;
-  }
-  
-  .rating-popout-close {
-    cursor: pointer;
-  }
-  
-  .rating-popout-modal-header {
-    display: flex;
-    justify-content: flex-end;
-    font-size: 2rem;
-  }
-  
-  .rating-popout-modal-content {
-    margin-bottom: 1rem;
-    align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000; /* Ensure it is on top of other content */
+}
 
-    
-  }
-  
-  .rating-popout-modal-footer {
-    display: flex;
-    justify-content: space-evenly;
-  }
+.rating-popout-modal {
+  border-radius: 5px;
+  padding: 1.5rem;
+  background-color: white;
+  width: 30em; /* Width of the modal */
+  height: 40em;
+  max-width: 90%; /* Ensure it is responsive */
+}
 
-  .modal-container .star{
-    align-content: center;
-    margin-bottom: 10%;
-  }
+.rating-popout-btn-submit {
+  background-color: #2a629a;
+  padding: 0.5rem 1rem;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
 
-  .input{
-    size:"lg";
-    visibility:"outline";
-    width: 100%;
-    padding: 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 1rem;
-  }
+.rating-popout-btn-cancel {
+  background-color: #d9534f;
+  padding: 0.5rem 1rem;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
 
-  .modal-container .star {
-  align-content: center;
-  margin-bottom: 10%;
+.rating-popout-close {
+  cursor: pointer;
+}
+
+.rating-popout-modal-header {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 2rem;
+}
+
+.rating-popout-modal-content {
+  margin-bottom: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.rating-popout-modal-footer {
+  display: flexbox;
+  width: 100%;
+  justify-content: center;
+}
+
+.btn-submit {
+  justify-content: center;
+  width: 100%;
+}
+
+.star-group {
+  justify-content: center;
+  margin-bottom: 11px;
+  margin-top: 5px;
+  margin-left: 25%;
+}
+
+.input {
+  size: "lg";
+  visibility: "outline";
+  width: 100%;
+  padding: 0.7rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
 }
 
 .form-control {
@@ -93,9 +95,33 @@
   border-color: #6b6b6b;
 }
 
-.card-img2{
+.card-img2 {
   height: 300px;
   width: 95%;
   object-fit: cover;
   border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
+  margin-left: 2.5%;
+  margin-right: 2.5%;
+}
+
+.modal-content {
+  margin-left: 12%;
+  margin-right: 10%;
+  margin-top: 3%;
+}
+
+.stat-rating-pop {
+  justify-content: center;
+}
+
+.btn-submit {
+  margin-left: 12px;
+  margin-right: 12px;
+  width: 97%;
+}
+
+.btn-submit:hover {
+  background: #577B8D;
+  transform: scale(0.99); /* Equal to scaleX(2) scaleY(2) */
+  transition-duration: 0.5s;
 }

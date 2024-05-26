@@ -1,80 +1,85 @@
-.card-container{
-    /* max-width: 500px;
+.card-container {
+  /* max-width: 500px;
     min-width: 330px; */
-    border-radius: 1rem;
-    box-shadow: 0px 10px 8px #999;
-    display: flex;
-    margin: 0.5rem;
-    background-color: #FFFBF5;
-    height: 280px;
-    width: 280px;
-    align-content: center;
-    justify-content: center;
+  border-radius: 1rem;
+  box-shadow: 0px 10px 8px #999;
+  display: flex;
+  margin: 0.5rem;
+  background-color: #fffbf5;
+  height: 280px;
+  width: 280px;
+  align-content: center;
+  justify-content: center;
 }
-
 
 .card-img {
-    border-radius: 1rem 1rem 1rem 1rem;
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    justify-content: center;
+  border-radius: 1rem 1rem 1rem 1rem;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  justify-content: center;
 }
 
-.card-title{
-    margin: 0.7rem 5%;
-    height: 2em;
-    font-size: 30px;
-    width: 200px;
-    margin-left: 15px;
+.card-title {
+  margin: 0.7rem 5%;
+  height: 2em;
+  font-size: 30px;
+  width: 200px;
+  margin-left: 15px;
 }
 
-.card-body h1{
-    font-size: 19px;
-    text-align: left;
-    align-items: center;
-    align-self: center;
-    align-content: center;
+.card-body h1 {
+  font-size: 19px;
+  text-align: left;
+  align-items: center;
+  align-self: center;
+  align-content: center;
 }
 
-.card-btn{
-    text-align: center;
-    width: 90%;
-    border-radius: 2rem;
-    padding: 0.6rem 1rem;
-    background-color: #3C5B6F;
-    color:white;
-    text-decoration: none;
-    margin: 0.5rem;
-    justify-content: center;
-    align-items: center;
-    margin-top: 5px;
-    margin-left: auto;
-    margin-right: auto;
+.card-btn {
+  text-align: center;
+  width: 90%;
+  border-radius: 2rem;
+  padding: 0.6rem 1rem;
+  background-color: #3c5b6f;
+  color: white;
+  text-decoration: none;
+  margin: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.star{
-    margin-left: 3%;
+.card-btn:hover {
+  background: #344c64;
+  transform: scale(0.99); /* Equal to scaleX(2) scaleY(2) */
+  transition-duration: 0.5s;
 }
 
-.hstack{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+.star {
+  margin-left: 3%;
 }
 
-.popout_title{
-    margin-bottom: 5%;
+.hstack {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
-.card-title h1{
-    align-items: left;
-    justify-content:space-between;
-    flex-direction:row;
-    width: "200px";
-    margin-left: 3%;
+.popout_title {
+  margin-bottom: 5%;
+}
+
+.card-title h1 {
+  align-items: left;
+  justify-content: space-between;
+  flex-direction: row;
+  width: "200px";
+  margin-left: 3%;
 }
 
 .large-icon:hover {
-    color: red;
-  }
+  color: red;
+}

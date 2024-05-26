@@ -74,7 +74,9 @@ export const RatingPopout = ({ comment_num, rate, onSubmit, onCancel, closeModal
         <img src={imgSrc} alt="Card Image" className="card-img2" />
         <div className="modal-content">{children}</div>
         <div className="star">
-          <StarRating value={rating} onRatingChange={setRating} />
+          <div className="star-group">
+            <StarRating value={rating} onRatingChange={setRating} className='star-rating-pop'/>
+          </div>
           <FormControl className="form-control">
             <FormLabel className="form-label">Comment</FormLabel>
             <Input
@@ -93,13 +95,13 @@ export const RatingPopout = ({ comment_num, rate, onSubmit, onCancel, closeModal
           >
             Submit
           </button>
-          <button
+          {/* <button
             type="button"
             className="rating-popout-btn-cancel"
             onClick={() => onCancel("")}
           >
             Cancel
-          </button>
+          </button> */}
         </div>
       </div>
     </div>
