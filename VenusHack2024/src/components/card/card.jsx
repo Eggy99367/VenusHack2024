@@ -7,7 +7,7 @@ import { CiHeart } from "react-icons/ci";
 import styled from "@emotion/styled";
 import "./card.css";
 
-export const Card = ({ imgSrc, title, rate, comment_num }) => {
+export const Card = ({ imgSrc, title, rate, comment_num, id}) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [message, setMessage] = useState("");
 
@@ -52,7 +52,7 @@ export const Card = ({ imgSrc, title, rate, comment_num }) => {
           marginBottom={"10px"}
         >
           <Box width="10%">
-            <p>{rate ?? "0"}</p>
+            <p>{parseFloat(rate.toFixed(2)) ?? "0"}</p>
           </Box>
           <Box width="55%">
             <StarRating value={rate ?? 0} />
@@ -74,6 +74,9 @@ export const Card = ({ imgSrc, title, rate, comment_num }) => {
           </button>
           {modalOpen && (
             <RatingPopout
+            rate = {rate}
+            comment_num={comment_num}
+            id={id}
               closeModal={handleButtonClick}
               onSubmit={handleButtonClick}
               onCancel={handleButtonClick}

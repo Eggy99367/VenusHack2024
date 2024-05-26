@@ -15,7 +15,7 @@ function Navbar() {
 
   return (
     <header>
-      <img src="./assets/white_logo.png" alt="Logo" className="nav-logo" />
+      <Link to="http://localhost:5173/"> {<img src="./assets/white_logo.png" alt="Logo" className="nav-logo" />} </Link>
       <div className="spacer"></div>
       <nav ref={navRef}>
         <Link to="/brandywine">Brandywine</Link>

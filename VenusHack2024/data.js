@@ -64,5 +64,5 @@ function add_data(){
 }
 
 // Example usage:
-const FoodData = httpGet("http://localhost/db/foods");
-console.log(FoodData)
+// const FoodData = httpGet("http://localhost/db/foods");
+// console.log(FoodData)
