@@ -35,9 +35,9 @@ function Navbar() {
           <FaTimes />
         </button>
       </nav>
-      <button className="nav-btn" onClick={showNavbar}>
+      {/* <button className="nav-btn" onClick={showNavbar}>
         <FaBars />
-      </button>
+      </button> */}
       <button className="icon-button" onClick={handleClick}>
         <CiHeart className="icon" />
       </button>

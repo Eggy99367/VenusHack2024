@@ -87,6 +87,7 @@ export const LoginPage = () => {
         {showSignUp && (
           <div className="signup-modal">
             <form onSubmit={handleSignUpSubmit}>
+            <img src={"../../../assets/large_logo.png"} />
               <h2>Sign Up</h2>
               <div className="form-group">
                 <label>Email:</label>
