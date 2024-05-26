@@ -1,12 +1,16 @@
 .cards-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
-  gap: 7px;
+  display: flex;
+  width: 80vw;
+  gap: 40px;
   justify-content: center;
+  align-items: center;
+  align-content: center;
+  flex-wrap:wrap;
   font-size: 15px;
   margin-left: 10%;
   margin-right: 10%;
   margin-top: 5%;
+  justify-items: center;
 }
 
 .category-heading {

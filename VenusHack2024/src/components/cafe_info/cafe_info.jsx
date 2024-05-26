@@ -8,12 +8,13 @@ function CafeInfo({ imgSrc, cafe_name, overall_rating }) {
     width: "90%",
     backgroundImage: `url(${imgSrc})`,
     backgroundPosition: "center",
-    display: "flex",
     flexDirection: "column",
     justifyContent: "center",
+    backgroundSize: "cover",
     alignItems: "center",
     margin: "auto",
     marginTop: "20px",
+    display: "flex",
   };
   return (
     <div className="cafe-info-container" style={style}>

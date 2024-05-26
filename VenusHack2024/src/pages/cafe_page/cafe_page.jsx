@@ -2,7 +2,7 @@ import React from "react";
 import Navbar from "../../components/navbar/navbar";
 import Card from "../../components/card/card";
 import CafeInfo from "../../components/cafe_info/cafe_info";
-import './cafe_page.css';
+import "./cafe_page.css";
 import { Spacer } from "@chakra-ui/react";
 
 export const CafePage = ({ cafe_name, imgSrc, cardData }) => {
@@ -15,11 +15,11 @@ export const CafePage = ({ cafe_name, imgSrc, cardData }) => {
 
   return (
     <div className="cafe-page-container">
-      <div className="nav">
-        <Navbar/>
+      <div>
+        <Navbar />
       </div>
       <div className="empty"></div>
-      <CafeInfo imgSrc={imgSrc} cafe_name={cafe_name} overall_rating={rate}/>
+      <CafeInfo imgSrc={imgSrc} cafe_name={cafe_name} overall_rating={rate} />
       {Object.entries(cardData).map(([category, cards]) => (
         <div className={"subtitle"} key={category}>
           <h1 className="category-heading">{category}</h1>

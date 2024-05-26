@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./navbar.css";
 import { useRef } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
-import { IconButton } from "@chakra-ui/react";
+import { Center, IconButton } from "@chakra-ui/react";
 import { BellIcon } from "@chakra-ui/icons";
 
 function Navbar() {
@@ -14,7 +14,7 @@ function Navbar() {
   };
 
   return (
-    <header>
+    <header >
       <h3>LOGO</h3>
       <div className="spacer"></div>
       <nav ref={navRef}>
@@ -36,6 +36,7 @@ function Navbar() {
         color={"#00000"}
         aria-label="Send email"
         icon={<BellIcon boxSize={20} />}
+        margin-top={"10%"}
       />
     </header>
   );

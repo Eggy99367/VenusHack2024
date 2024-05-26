@@ -8,46 +8,58 @@ import {
   FormHelperText,
 } from "@chakra-ui/react";
 
-export const RatingPopout = ({ onSubmit, onCancel, closeModal, children }) => {
+export const RatingPopout = ({
+  onSubmit,
+  onCancel,
+  closeModal,
+  children,
+  imgSrc,
+}) => {
   const [value, setValue] = React.useState("");
   const handleChange = (event) => setValue(event.target.value);
   return (
     <div
-      className="modal-container"
+      className="rating-popout-modal-container"
       onClick={(e) => {
-        if (e.target.className === "modal-container") closeModal("");
+        if (e.target.className === "rating-popout-modal-container")
+          closeModal("");
       }}
     >
-      <div className="modal">
-        <div className="modal-header">
-          <p className="close" onClick={() => closeModal("")}>
+      <div className="rating-popout-modal">
+        <div className="rating-popout-modal-header">
+          <p className="rating-popout-close" onClick={() => closeModal("")}>
             &times;
           </p>
         </div>
-        <div className="modal-content">{children}</div>
-        <div className="star">
+        <div className="rating-popout-modal-content">
+          <div className="rating-popout-image-container">
+            <img src={imgSrc} alt="Popout" className="rating-popout-image" />
+          </div>
+          {children}
+        </div>
+        <div className="rating-popout-star">
           <StarRating />
           <FormControl>
             <FormLabel>Comment</FormLabel>
             <Input
-              className="input"
+              className="rating-popout-input"
               onChange={handleChange}
               value={value}
               placeholder="Say something..."
             />
           </FormControl>
         </div>
-        <div className="modal-footer">
+        <div className="rating-popout-modal-footer">
           <button
             type="submit"
-            className="btn btn-submit"
+            className="rating-popout-btn-submit"
             onClick={() => onSubmit("")}
           >
             Submit
           </button>
           <button
             type="button"
-            className="btn btn-cancel"
+            className="rating-popout-btn-cancel"
             onClick={() => onCancel("")}
           >
             Cancel
@@ -57,3 +69,5 @@ export const RatingPopout = ({ onSubmit, onCancel, closeModal, children }) => {
     </div>
   );
 };
+
+export default RatingPopout;
